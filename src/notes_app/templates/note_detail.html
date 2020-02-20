@@ -1,0 +1,9 @@
+<h1>{{note}}</h1>
+
+<a href="{% url 'notes:note_edit' note.slug %}">Update Details</a>
+
+<p>{{note.img|safe}}</p>
+<p>{{note.content}}</p>
+<p>{{note.created}}</p>
+<p>{{note.active}}</p>
+<p>{{note.tags}}</p>

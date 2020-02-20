@@ -1,0 +1,13 @@
+{% load static %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+
+<form method="post">
+  <!-- for security -->
+  {% csrf_token %}
+  <!-- for ckeditor field -->
+  <!-- {{form.media}} -->
+  <!-- our form -->
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>

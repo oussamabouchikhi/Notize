@@ -1,0 +1,7 @@
+<form method="post">
+  <!-- for security -->
+  {% csrf_token %}
+  <!-- our form -->
+  {{form}}
+  <button type="submit" class="">Edit note</button>
+</form>

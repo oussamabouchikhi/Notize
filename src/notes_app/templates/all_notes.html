@@ -1,0 +1,11 @@
+<h1>Welcome in Notes App</h1>
+<h3>Available Notes</h3>
+<ol>
+  {% for note in all_notes %}
+  <li>
+    <a href="{% url 'notes:note_detail' note.slug %}">{{note|safe}}</a>
+  </li>
+  {% endfor %}
+</ol>
+<hr />
+<a href="{% url 'notes:add_note' %}"> + Add a Note</a>

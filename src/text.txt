@@ -1,0 +1,17 @@
+
+// to activate our virtual environment
+ /Scripts/activate.bat
+
+// creating an app
+python manage.py  startapp appname
+
+// Run django app
+python manage.py  runserver
+
+// check for changes
+python manage.py  makemigrations
+
+// apply changes
+python manage.py  migrate
+
+// 
