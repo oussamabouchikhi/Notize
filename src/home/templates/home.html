@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro" class="clearfix">
+    <div class="container">
+
+      <div class="intro-img">
+        <img src="{% static 'home-static/img/intro-img.svg' %}" alt="" class="img-fluid">
+      </div>
+
+      <div class="intro-info">
+        <h2>Create amazing<br><span>notes</span><br>for your business!</h2>
+        <div>
+          <a href="" class="btn-get-started scrollto">Create a Note</a>
+          <a href="#" class="btn-services scrollto">Available Notes</a>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- #intro -->
+
+  <main id="main">
+
+    <!--==========================
+      Services Section
+    ============================-->
+    <section id="services" class="section-bg">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Note</h3>
+          <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
+        </header>
+
+        <div class="row">
+
+          {% for note in all_notes %}
+          <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp" data-wow-duration="1.4s">
+            <div class="box">
+              <div class="icon"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+              <h4 class="title"><a href="{% url 'notes:note_detail' note.slug %}">{{note.title}}</a></h4>
+              <p class="description">{{note.content}}</p>
+              <span>{{note.user.username}}</span>
+              <span class="float-right">{{note.created|date:"j M"}}</span>
+              {% if note.img %}
+              <img src="{{note.img.url}}" alt="macbook" />
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+
+      </div>
+    </section><!-- #services -->
+
+    <!--==========================
+      Why Us Section
+    ============================-->
+    <section id="why-us" class="wow fadeIn">
+      <div class="container">
+        <header class="section-header">
+          <h3>Why choose us?</h3>
+          <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
+        </header>
+
+        <div class="row row-eq-height justify-content-center">
+
+          <div class="col-lg-4 mb-4">
+            <div class="card wow bounceInUp">
+              <i class="fa fa-diamond"></i>
+              <div class="card-body">
+                <h5 class="card-title">Corporis dolorem</h5>
+                <p class="card-text">Deleniti optio et nisi dolorem debitis. Aliquam nobis est temporibus sunt ab
+                  inventore officiis aut voluptatibus.</p>
+                <a href="#" class="readmore">Read more </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!--==========================
+      Portfolio Section
+    ============================-->
+    <section id="portfolio" class="clearfix">
+      <div class="container">
+
+        <header class="section-header">
+          <h3 class="section-title">Our Portfolio</h3>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="{% static 'home-static/img/portfolio/app1.jpg' %}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4><a href="#">App 1</a></h4>
+                <p>App</p>
+                <div>
+                    <a href="{% static 'home-static/img/portfolio/app1.jpg' %}" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i
+                        class="ion ion-eye"></i></a>
+                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #portfolio -->
+
+
+
+
+    <!--==========================
+      Clients Section
+    ============================-->
+    <section id="clients" class="section-bg">
+
+
+    </section>
+
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact">
+      <div class="container-fluid">
+
+        <div class="section-header">
+          <h3>Contact Us</h3>
+        </div>
+
+        <div class="row wow fadeInUp">
+
+          <div class="col-lg-6">
+
+            <div class="form">
+              <div id="sendmessage">Your message has been sent. Thank you!</div>
+              <div id="errormessage"></div>
+              <form action="" method="post" role="form" class="contactForm">
+                <div class="form-row">
+                  <div class="form-group col-lg-6">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                      data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <div class="validation"></div>
+                  </div>
+                  <div class="form-group col-lg-6">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
+                      data-rule="email" data-msg="Please enter a valid email" />
+                    <div class="validation"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                    data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name="message" rows="5" data-rule="required"
+                    data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <div class="validation"></div>
+                </div>
+                <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #contact -->
+
+  </main>
+
+  {% endblock %}
