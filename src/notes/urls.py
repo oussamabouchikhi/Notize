@@ -29,3 +29,9 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+# Admin panel customazation
+admin.site.site_header = 'Notize Admin Panel'
+admin.site.site_title = 'Notize'
+admin.site.site_index_header = 'Welcome To Notize Admin Panel'
