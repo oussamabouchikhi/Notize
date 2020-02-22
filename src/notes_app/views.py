@@ -10,7 +10,9 @@ from django.contrib import messages
 # show all notes
 def all_notes(request):
     # return HttpResponse('<h1>Welcome to Django with Oussama</h1>')
-    all_notes = Note.objects.all() # get all Note objects
+    user = request.user # get the current user
+    #all_notes = Note.objects.all() # get all Note objects
+    all_notes = Note.objects.filter(user=user) # get only current user notes
     context = {  
         'all_notes': all_notes
     }
