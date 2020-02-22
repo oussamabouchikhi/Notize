@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'notes_app',
     'accounts',
+    'home',
 ]
 
 MIDDLEWARE = [
