@@ -41,14 +41,18 @@
           {% for note in all_notes %}
           <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp" data-wow-duration="1.4s">
             <div class="box">
-              <div class="icon"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+              <div class="icon">
+                <!-- <i class="ion-ios-analytics-outline" style="color: #ff689b;"></i> -->
+                {% if note.img %}
+                <img src="{{note.img.url}}" alt="macbook" />
+                {% else %} 
+                <img src="{% static 'home-static/img/no-image.png' %}" alt="default" />
+                {% endif %}
+              </div>
               <h4 class="title"><a href="{% url 'notes:note_detail' note.slug %}">{{note.title}}</a></h4>
-              <p class="description">{{note.content}}</p>
+              <p class="description">{{note.content|safe|truncatewords:'10'}}</p>
               <span>{{note.user.username}}</span>
               <span class="float-right">{{note.created|date:"j M"}}</span>
-              {% if note.img %}
-              <img src="{{note.img.url}}" alt="macbook" />
-              {% endif %}
             </div>
           </div>
           {% endfor %}

@@ -617,6 +617,17 @@ h6 {
   transition: 0.5s;
 }
 
+/* Oussama Edits */
+#services .icon img {
+  width: 64px;
+  height: 64px;
+}
+#services span {
+  margin-left: 40px;
+}
+/* Oussama Edits */
+
+
 #services .title {
   margin-left: 40px;
   font-weight: 700;
