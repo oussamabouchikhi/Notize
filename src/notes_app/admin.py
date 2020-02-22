@@ -13,7 +13,7 @@ class AdminNotes(admin.ModelAdmin):
     list_filter = ['user', 'tags', 'created'] # filter by user, tags, created date
     list_display = ['title', 'created', 'active'] # information to display for each note
     search_fields = ['title', 'content'] # search by title in searchField
-
+    list_editable = ['active'] # activate note instantly with a checkbox
 
 # Add the model to admin panel
 admin.site.register(Note, AdminNotes)
