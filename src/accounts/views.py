@@ -69,7 +69,8 @@ def edit_profile(request, slug):
 
     context = {
         'user_form': user_form,
-        'profile_form': profile_form
+        'profile_form': profile_form,
+        'profile': profile,
     }
     return render(request, 'edit_profile.html', context)
 
@@ -87,6 +88,7 @@ def change_password(request, slug):
             password_form.save()
 
     context = {
-        'password_form': password_form
+        'password_form': password_form,
+        'profile': profile,
     }
     return render(request, 'change_password.html', context)

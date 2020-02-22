@@ -55,13 +55,12 @@
             </div>
 
             <nav class="main-nav float-right d-none d-lg-block">
-                <ul>
-                    <li class="active"><a href="/">Home</a></li>                
+                <ul>               
                     <!-- hide login/signup if user is already logged in -->
                     {% if user.is_authenticated == false %}
                     <li><a href="#">Notes</a></li>
-                    <li><a href="#">Sign in</a></li>
-                    <li><a href="#">Sign up</a></li>
+                    <li><a href="{% url 'accounts:login' %}">Sign in</a></li>
+                    <li><a href="{% url 'accounts:register' %}">Sign up</a></li>
                     {% else %}
                     <li><a href="{% url 'notes:all_notes' %}">Your notes</a></li>
                     <li><a href="{% url 'accounts:profile' profile.slug %}">Profile</a></li>
