@@ -44,7 +44,7 @@
     <!--==========================
   Header
   ============================-->
-    <header id="header" class="fixed-top">
+    <header id="header" class="fixed-top" style="margin-bottom: 50px;">
         <div class="container">
 
             <div class="logo float-left">
@@ -85,10 +85,13 @@
         <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
         {% endfor %}
     </ul> -->
-
+   
+    <div class="container" style="margin-top: 100px;margin-bottom: 50px;">
     {% block body %}
 
     {% endblock %}
+
+    </div>
 
     <!--==========================
     Footer

@@ -2,6 +2,8 @@
   <!-- for security -->
   {% csrf_token %}
   <!-- our form -->
-  {{form}}
-  <button type="submit" class="">Edit note</button>
+  <div class="form">
+    {{form}}
+  </div>
+  <button type="submit" class="btn-primary btn-block">Edit note</button>
 </form>
