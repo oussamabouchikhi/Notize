@@ -1,5 +1,5 @@
 # Notize
-Notize is a notes app built using Django3 
+Notize is a notes app built using Django3 [in progess]
 
 ## Tools & Language
   - HTML5
